@@ -1,0 +1,13 @@
+name: Test
+on:
+  pull_request:
+    branches: [ "feat/add-initial-setup" ]
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test Version
+        run: |
+          docker-compose run --rm odoo odoo --version
