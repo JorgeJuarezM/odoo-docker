@@ -14,3 +14,6 @@ jobs:
       - name: Test Base
         run: |
           docker-compose run --rm web odoo -u web -d test_db --test-enable --stop-after-init
+      - name: Test Prendario App
+        run: |
+          docker-compose run --rm web odoo -u prendario -d test_db --test-enable --stop-after-init
