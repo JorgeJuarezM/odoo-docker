@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test Version
+      - name: Install Base
         run: |
           docker-compose run --rm web odoo -i base -d test_db --stop-after-init
-          docker-compose run --rm web odoo -u base -d test_db --test-enable --stop-after-init
+      - name: Test Base
+        run: |
+          docker-compose run --rm web odoo -u web -d test_db --test-enable --stop-after-init
